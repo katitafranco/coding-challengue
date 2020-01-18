@@ -71,6 +71,7 @@ typings/
 # Docs Custom
 .cache/
 yarn-error.log
+yarn.lock
 
 # Build
 dist/
