@@ -1,12 +1,12 @@
 import React from 'react';
+import '../assets/styles/components/Layout.scss'
 
 
 function Layout(props) {
   // const children = props.children;
 
   return (
-    <React.Fragment>
-     
+    <React.Fragment >     
       {props.children}
     </React.Fragment>
   );

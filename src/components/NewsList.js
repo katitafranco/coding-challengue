@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/styles/components/NewsList.scss'
 
 
 function NewsList(props) {

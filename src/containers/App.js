@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: undefined,
+      data: {pages:[]},
       idSelectSearch: "TODAS"
     };
     this.handleChange = this.handleChange.bind(this);
@@ -24,40 +24,38 @@ class App extends Component {
 
 
   async componentDidMount() {
+    const data = await getNewsList(url);
     this.setState(
       {
-        data: await getNewsList(url)
+        data
       }
     );
   }
 
 
-  handleChange(event) {    
+  handleChange(event) {  
+    const listado = this.searchFilterList(this.state.data, event.target.value); 
+    console.log(listado,"lsitado");
+        
     this.setState({
-      idSelectSearch: event.target.value
-    });    
+      idSelectSearch: event.target.value,
+      data: { pages:listado}
+    });   
+    
   }
 
   searchFilterList(listado, selectSection) {    
 
-    if (listado != null) {
-      if (listado.pages.length > 0) {
-
+    if (listado != null && listado.pages.length > 0) {
+    
+      let arrayNews = [];
         try {         
 
-          var arrayNews = [];
-
-          console.log("this.state.data.pages.map", this.state.data);
-          listado.pages.map(item => {
-                
-            let searchfind = false;         
-
-            item.sections.forEach(element => {
-              if (element == selectSection) {
-                searchfind = true;
-              }
-            });
-
+          
+          listado.pages.map(item => { 
+                          
+            const searchfind = item.sections.some(element => element === selectSection);
+          
             if (selectSection == "TODAS" || searchfind == true) {
               if (item.stats.article > 0) {
                 var objNews = {}
@@ -92,22 +90,18 @@ class App extends Component {
         return []
       }
     }
-    else {
-      return [];
-    }
-  }
+    
+  
   render() {
-    console.log("this.state.data", this.state.data);
-    const listado = this.searchFilterList(this.state.data, this.state.idSelectSearch);
-    console.log("Imprimiendo listado:", listado);
+   
     return (
       <Layout>
         <Header title="LO MÁS LEÍDO"></Header>
         <SelectSearch value={this.state.idSelectSearch} handleChange={this.handleChange} ></SelectSearch>
         <NewsList>
         {
-          listado.length > 0 ?
-          listado.slice(0,5).map((item,index) => <NewsItem key={index} number={index+1} title={item.title}/>):
+          this.state.data.pages.length > 0 ?
+          this.state.data.pages.slice(0,5).map((item,index) => <NewsItem key={index} number={index+1} path={item.path} title={item.title}/>):
           <p>No hay noticias..</p>
         }
         </NewsList>
