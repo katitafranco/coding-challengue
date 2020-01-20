@@ -8,7 +8,7 @@ function SelectSearch(props) {
             <option value="guayaquil">Guayaquil</option>
             <option value="deportes">Deportes</option>
             <option value="entretenimiento">Entretenimiento</option>
-            <option value="revista">La Revista</option>
+            <option value="la revista">La Revista</option>
         </select>
     )
 

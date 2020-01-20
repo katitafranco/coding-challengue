@@ -27,7 +27,6 @@ class App extends Component {
     this.setState(
       {
         data: await getNewsList(url)
-
       }
     );
   }
@@ -49,7 +48,7 @@ class App extends Component {
           var arrayNews = [];
 
           console.log("this.state.data.pages.map", this.state.data);
-          this.state.data.pages.map(item => {
+          listado.pages.map(item => {
                 
             let searchfind = false;         
 
@@ -99,19 +98,18 @@ class App extends Component {
   }
   render() {
     console.log("this.state.data", this.state.data);
-
     const listado = this.searchFilterList(this.state.data, this.state.idSelectSearch);
     console.log("Imprimiendo listado:", listado);
     return (
       <Layout>
-
         <Header title="LO MÁS LEÍDO"></Header>
         <SelectSearch value={this.state.idSelectSearch} handleChange={this.handleChange} ></SelectSearch>
         <NewsList>
         {
-          listado.length > 0 &&
-          listado.slice(0,5).map((item,index) => <NewsItem key={index} number={index+1} title={item.title}/>)
-          }
+          listado.length > 0 ?
+          listado.slice(0,5).map((item,index) => <NewsItem key={index} number={index+1} title={item.title}/>):
+          <p>No hay noticias..</p>
+        }
         </NewsList>
       </Layout>
     );
