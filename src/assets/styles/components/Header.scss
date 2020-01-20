@@ -3,12 +3,13 @@
 .header {
   color: $title-color;
   display: flex;
-  height: 100px;
-  top: 0px;
+  height: 80px;
+  top: 10px;
   width: 100%;
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 1rem;
+  padding-bottom: 0;
 }
 .title {
   font-size: 18px;

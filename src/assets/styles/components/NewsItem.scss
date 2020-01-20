@@ -6,6 +6,8 @@
   display: flex;
   border-bottom: thin solid $numbers-color;
   width: 100%;
+  padding: 0em;
+  margin: 0;
 }
 .number__item {
   font-family: $numbers-font;
@@ -15,17 +17,16 @@
   padding: 0.3rem 0.5rem;
   margin-right: 25px;
 }
-.title__item {
-  max-width: 80%;
-}
+// .title__item {
+//   max-width: 80%;
+// }
 .news__item a {
   color: $news-color;
   font-weight: bold;
   cursor: pointer;
-  font-size: 12px;
   text-decoration: none;
   max-width: 80%;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .news__item a:hover {
