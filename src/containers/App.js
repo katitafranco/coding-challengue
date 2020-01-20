@@ -65,8 +65,7 @@ class App extends Component {
                 objNews["title"] = item.title;
                 objNews["visits"] = item.stats.visits;
                 objNews["path"] = item.path;
-                arrayNews.push(objNews);
-    
+                arrayNews.push(objNews);    
               }
             }
           })
@@ -74,11 +73,22 @@ class App extends Component {
         } catch (error) {
           console.log(error);
         }
-        arrayNews.map(value => console.log(value.title, "arrayNewseeeeeeeee"))
-        console.log(arrayNews, "*****************arrayNews");
-
+        
+        //ordenando arreglo
+        if(arrayNews.length>1){
+          arrayNews.sort(function (a, b) {
+            if (a.visits > b.visits) {
+              return 1;
+            }
+            if (a.visits < b.visits) {
+              return -1;
+            }
+            return 0;
+          });
+        }
+        
+        
         return arrayNews     
-
       } else {
         return []
       }
@@ -100,7 +110,7 @@ class App extends Component {
         <NewsList>
         {
           listado.length > 0 &&
-          listado.map((item,index) => <NewsItem key={index} number={index+1} title={item.title}/>)
+          listado.slice(0,5).map((item,index) => <NewsItem key={index} number={index+1} title={item.title}/>)
           }
         </NewsList>
       </Layout>
