@@ -1,5 +1,9 @@
-@import "../vars.scss";
-@import "../Media.scss";
-.news__list__container{
+@import '../vars.scss';
 
+.news__list__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

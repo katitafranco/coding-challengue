@@ -1,0 +1,8 @@
+@import '../vars.scss';
+
+.Message{
+    font-family: $text-font;
+    align-items: center;
+    display: flex;
+    border-bottom: thin solid black;
+}

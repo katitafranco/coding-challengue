@@ -1,18 +1,28 @@
-import React from 'react'
- import '../assets/styles/components/Search.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../assets/styles/components/Search.scss';
 
-function SelectSearch(props) {
-    return (
-        <select className="search_select" value={props.valueSelected} onChange={props.handleChange}>
-            <option value="TODAS">TODAS</option>
-            <option value="noticias">Noticias</option>
-            <option value="guayaquil">Guayaquil</option>
-            <option value="deportes">Deportes</option>
-            <option value="entretenimiento">Entretenimiento</option>
-            <option value="la revista">La Revista</option>
-        </select>
-    )
-
+function SelectSearch({ options, valueSelected, handleChange }) {
+  return (
+    <select
+      className="search_select"
+      value={valueSelected}
+      onChange={handleChange}
+    >
+      {/* <option value="TODAS">TODAS</option> */}
+      {options.map(item => (
+        <option key={item.value} value={item.value}>
+          {item.label}
+        </option>
+      ))}
+    </select>
+  );
 }
+
+SelectSearch.propTypes = {
+  options: PropTypes.array.isRequired,
+  valueSelected: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default SelectSearch;

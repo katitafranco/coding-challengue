@@ -1,15 +1,8 @@
 import React from 'react';
-import '../assets/styles/components/Layout.scss'
+import '../assets/styles/components/Layout.scss';
 
-
-function Layout(props) {
-  // const children = props.children;
-
-  return (
-    <React.Fragment >     
-      {props.children}
-    </React.Fragment>
-  );
+function Layout({ children }) {
+  return <div className="layout">{children}</div>;
 }
 
 export default Layout;

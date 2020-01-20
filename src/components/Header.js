@@ -1,15 +1,18 @@
-import React from 'react'
-import '../assets/styles/components/Header.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../assets/styles/components/Header.scss';
 
-function Header(props) {
-
-    return (
-        <header className="header">
-            <div>
-                <div className="title">{props.title}</div>
-                <div className="title__border"></div>
-            </div>
-        </header>
-    )
+function Header({ title }) {
+  return (
+    <header className="header">
+      <div className="title">{title}</div>
+      <div className="title__border"></div>
+    </header>
+  );
 }
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired
+};
+
 export default Header;

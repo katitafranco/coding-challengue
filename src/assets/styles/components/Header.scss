@@ -1,27 +1,25 @@
-@import "../Vars.scss";
+@import '../vars';
 
 .header {
-  // align-items: center;
   color: $title-color;
   display: flex;
   height: 100px;
   top: 0px;
   width: 100%;
-  padding: 2rem;
-
-
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 1rem;
 }
-.title{
+.title {
   font-size: 18px;
   font-weight: bold;
   font-family: $text-font;
   justify-content: space-between;
 }
-.title__border{
+.title__border {
   border-top: medium;
   border: thin solid $borderTitle-color;
-  width: 350px;
+  width: 100%;
   margin-top: 5px;
   margin-bottom: 10px;
-
 }
