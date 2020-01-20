@@ -75,3 +75,4 @@ yarn.lock
 
 # Build
 dist/
+build/

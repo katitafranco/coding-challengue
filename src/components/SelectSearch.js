@@ -4,9 +4,11 @@ function SelectSearch(props) {
     return (
         <select className="search_select" value={props.valueSelected} onChange={props.handleChange}>
             <option value="TODAS">TODAS</option>
-            <option value="Noticias">Noticias</option>
-            <option value="Deportes">Deportes</option>
-            <option value="Entretenimiento">Entretenimiento</option>
+            <option value="noticias">Noticias</option>
+            <option value="guayaquil">Guayaquil</option>
+            <option value="deportes">Deportes</option>
+            <option value="entretenimiento">Entretenimiento</option>
+            <option value="revista">La Revista</option>
         </select>
     )
 
